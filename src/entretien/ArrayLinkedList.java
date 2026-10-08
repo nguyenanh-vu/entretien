@@ -12,25 +12,25 @@ public class ArrayLinkedList<T> implements List<T> {
 	public static class ArrayLinkedListNode<T> {
 		
 		private T[] content;
-		private final int size;
+		private final int capacity;
 		public ArrayLinkedListNode<T> previous = null;
 		public ArrayLinkedListNode<T> next = null; 
 		
 		@SuppressWarnings("unchecked")
-		public ArrayLinkedListNode(int size) {
-			this.size = size;
-			content = (T[]) new Object[size];
+		public ArrayLinkedListNode(int capacity) {
+			this.capacity = capacity;
+			content = (T[]) new Object[capacity];
 		}
 		
 		public T get(int i) throws ArrayIndexOutOfBoundsException {
-			if (i < 0 || i >= size) {
+			if (i < 0 || i >= capacity) {
 				throw new ArrayIndexOutOfBoundsException(Integer.toString(i));
 			}
 			return content[i];
 		}
 		
 		public boolean set(int i, T o) throws ArrayIndexOutOfBoundsException {
-			if (i < 0 || i >= size) {
+			if (i < 0 || i >= capacity) {
 				throw new ArrayIndexOutOfBoundsException(Integer.toString(i));
 			}
 			
@@ -38,9 +38,15 @@ public class ArrayLinkedList<T> implements List<T> {
 			if  (previous == null) {
 				if (o == null) {
 					return false;
+				} else {
+					;
 				}
-			} else if (previous.equals(o)) {
-				return false;
+			} else {
+				if (previous.equals(o)) {
+					return false;					 
+				} else {
+					;
+				}
 			}
 			content[i] = o;
 			return true;
