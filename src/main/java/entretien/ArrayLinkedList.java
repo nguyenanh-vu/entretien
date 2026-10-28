@@ -1,4 +1,4 @@
-package entretien;
+package main.java.entretien;
 
 import java.util.Collection;
 import java.util.Iterator;
